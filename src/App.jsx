@@ -4,6 +4,7 @@ import Timeline from "./components/timeline";
 import Portfolio from "./components/portfolio";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
+import Header from "./components/header";
 
 function App() {
 	const [theme, setTheme] = useState(null);
@@ -67,12 +68,13 @@ function App() {
 		<button
 			type="button"
 			onClick={handleThemeSwitch}
-			className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
+			className="bottom-4 fixed p-2 z-10 right-10 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
 		>
 			{theme === 'dark' ? sun : moon}
 		</button>
-		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
+		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-white min-h-screen font-inter">
 			<div className="max-w-5xl w-11/12 mx-auto">
+				<Header/>
 				<Intro />
 				<Portfolio />
 				<Timeline />

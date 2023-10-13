@@ -6,15 +6,15 @@ export default [
         link: 'https://maddaxlallatin.github.io'
     },
     {
-        title: "Project 1",
-        imgUrl: 'assets\\terminal-website.jpg',
-        stack: ['React', 'Node', 'Express', 'MongoDB'],
-        link: 'https://github.com'
+        title: "GFRC 2023",
+        imgUrl: 'assets\\gfrc2023Image.png',
+        stack: ['C#', 'SQLite', 'Unity'],
+        link: 'https://github.com/maddaxlallatin/GFRC_2023'
     },
     {
-        title: "Project 1",
-        imgUrl: 'assets\\terminal-website.jpg',
-        stack: ['React', 'Node', 'Express', 'MongoDB'],
-        link: 'https://github.com'
+        title: "VR Cup Pong",
+        imgUrl: 'assets\\vrCupPongImage.png',
+        stack: ['C#', 'Unity'],
+        link: 'https://github.com/maddaxlallatin/cupPong'
     },
 ]
