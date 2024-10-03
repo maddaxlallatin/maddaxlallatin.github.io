@@ -1,9 +1,15 @@
 export default [
     {
-        year: 'Today',
-        title: 'High School Student',
+        year: 'Current',
+        title: 'Computer Science Student',
+        duration: '',
+        details: 'I am currently a student at Utah State University studying Computer Science with a minor in Unmanned Aerial Systems. '    
+    },
+    {
+        year: '2024',
+        title: 'High School Graduate',
         duration: '4 years',
-        details: 'I am currently a high school student at Grassfield High School. I am a member of the Governers STEM Acedemy'    
+        details: 'Graduated High School from the Grassfield High School Governers STEM Academy. Earned a 4.5446 GPA. Was a member of the National Honor Society and the varsity soccer team.'    
     },
     {
         year: '2023',
