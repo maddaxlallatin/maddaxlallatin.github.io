@@ -1,9 +1,25 @@
 export default [
     {
+        title: "VR Cup Pong",
+        imgUrl: 'assets\\vrCupPongImage.png',
+        stack: ['C#', 'Unity'],
+        link: 'https://github.com/maddaxlallatin/cupPong',
+        description: "A multiplayer vr cup pong game made in Unity using PhotonPUN."
+
+    },{
+        title: "IN PROGRESS - Stock API",
+        imgUrl: '',
+        stack: ['Java', 'Springboot', 'AWS EC2'],
+        link: 'https://github.com/maddaxlallatin/stockapi',
+        description: "A RESTful API created with Springboot, uses data from yahoo finance Hosted on AWS EC2."
+
+
+    },
+    {
         title: "Developer Portfolio",
         imgUrl: 'assets\\developerPortfolio.png',
         stack: ['React', 'Tailwind', 'Vite'],
-        link: 'https://maddaxlallatin.github.io',
+        link: 'https://maddaxlallatin.com',
         description: "A simple portfolio website that showcases my projects and skills."
     },
     {
@@ -12,14 +28,6 @@ export default [
         stack: ['C#', 'SQLite', 'Unity'],
         link: 'https://github.com/maddaxlallatin/GFRC_2023',
         description: "Part of a summer mentorship program at MITRE, collaborated with other highschool students to build a FRC simulation."
-
-    },
-    {
-        title: "VR Cup Pong",
-        imgUrl: 'assets\\vrCupPongImage.png',
-        stack: ['C#', 'Unity'],
-        link: 'https://github.com/maddaxlallatin/cupPong',
-        description: "A multiplayer vr cup pong game made in Unity using PhotonPUN."
 
     },
     {
