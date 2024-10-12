@@ -8,7 +8,7 @@ export default [
 
     },{
         title: "IN PROGRESS - Stock API",
-        imgUrl: 'assets\\inProgress.jpeg',
+        imgUrl: 'assets\\inProgress.jpg',
         stack: ['Java', 'Springboot', 'AWS EC2'],
         link: 'https://github.com/maddaxlallatin/stockapi',
         description: "A RESTful API created with Springboot, uses data from yahoo finance Hosted on AWS EC2."
