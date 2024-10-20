@@ -48,7 +48,7 @@ export default [
 
     },
     {
-        title: "Google Calender Color",
+        title: "Google Calendar Color",
         imgUrl: 'assets/googleCalendarColor.png',
         stack: ['JavaScript'],
         link: 'https://github.com/maddaxlallatin/googleCalenderColor',
