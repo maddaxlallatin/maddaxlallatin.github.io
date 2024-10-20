@@ -1,18 +1,19 @@
 export default [
     {
+        title: "Stock API",
+        imgUrl: 'assets\\Screenshot_5.png',
+        stack: ['Java', 'Springboot', 'AWS EC2'],
+        link: 'https://github.com/maddaxlallatin/stockapi',
+        description: "A RESTful API created with Springboot, uses data from yahoo finance Hosted on AWS EC2."
+
+
+    },
+    {
         title: "VR Cup Pong",
         imgUrl: 'assets\\vrCupPongImage.png',
         stack: ['C#', 'Unity'],
         link: 'https://github.com/maddaxlallatin/cupPong',
         description: "A multiplayer vr cup pong game made in Unity using PhotonPUN."
-
-    },{
-        title: "IN PROGRESS - Stock API",
-        imgUrl: 'assets\\inProgress.jpg',
-        stack: ['Java', 'Springboot', 'AWS EC2'],
-        link: 'https://github.com/maddaxlallatin/stockapi',
-        description: "A RESTful API created with Springboot, uses data from yahoo finance Hosted on AWS EC2."
-
 
     },
     {
