@@ -47,4 +47,11 @@ export default [
         description: "A school map integrated with a gantry system, controlled by two Arduino Unos and a CNC shield. Stepper motors move a magnet-equipped bear through the hallways, guiding new students to their chosen rooms."
 
     },
+    {
+        title: "Google Calender Color",
+        imgUrl: 'assets/googleCalendarColor.png',
+        stack: ['JavaScript'],
+        link: 'https://github.com/maddaxlallatin/googleCalenderColor',
+        description: "A chrome extension that recolors google calendar event backgrounds based on their color when in month view."
+    }
 ]
