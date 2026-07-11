@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Forminit } from 'forminit';
 
 const forminit = new Forminit();
 const FORM_ID = 'nnkybgz3syn';
+const RECAPTCHA_SITE_KEY = '6LdLnk0tAAAAAJNW7tgSLdnHohbVjASeOX9zfIJf';
 
 const fieldClass =
   'w-full border border-ink/20 bg-transparent px-3 py-2.5 font-display text-sm text-ink placeholder:text-muted/70 transition-colors focus:border-signal dark:border-paper/20 dark:text-paper';
@@ -10,24 +11,65 @@ const fieldClass =
 function Contact() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
+
+  useEffect(() => {
+    const existing = document.querySelector('script[data-recaptcha="v3"]');
+    if (existing) {
+      if (window.grecaptcha) {
+        window.grecaptcha.ready(() => setRecaptchaReady(true));
+      }
+      return undefined;
+    }
+
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.dataset.recaptcha = 'v3';
+    script.onload = () => {
+      window.grecaptcha.ready(() => setRecaptchaReady(true));
+    };
+    document.head.appendChild(script);
+
+    return undefined;
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!recaptchaReady || !window.grecaptcha) {
+      setStatus('error');
+      setError('reCAPTCHA not loaded. Please refresh the page.');
+      return;
+    }
+
     setStatus('loading');
     setError(null);
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
-    const { error: submitError } = await forminit.submit(FORM_ID, formData);
 
-    if (submitError) {
+    try {
+      const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+        action: 'contact_form',
+      });
+
+      const formData = new FormData(form);
+      formData.append('g-recaptcha-response', token);
+
+      const { error: submitError } = await forminit.submit(FORM_ID, formData);
+
+      if (submitError) {
+        setStatus('error');
+        setError(submitError.message);
+        return;
+      }
+
+      setStatus('success');
+      form.reset();
+    } catch {
       setStatus('error');
-      setError(submitError.message);
-      return;
+      setError('An error occurred. Please try again.');
     }
-
-    setStatus('success');
-    form.reset();
   }
 
   return (
@@ -128,11 +170,33 @@ function Contact() {
 
             <button
               type="submit"
-              disabled={status === 'loading'}
+              disabled={status === 'loading' || !recaptchaReady}
               className="mt-2 w-max border border-ink bg-ink px-5 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-paper transition-colors hover:border-signal hover:bg-signal disabled:cursor-not-allowed disabled:opacity-60 dark:border-paper dark:bg-paper dark:text-ink dark:hover:border-signal dark:hover:bg-signal"
             >
               {status === 'loading' ? 'Sending...' : 'Work with me'}
             </button>
+
+            <p className="mt-1 max-w-md font-mono text-[10px] leading-relaxed text-muted">
+              This site is protected by reCAPTCHA and the Google{' '}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-ink/20 underline-offset-2 transition-colors hover:text-signal dark:decoration-paper/20"
+              >
+                Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a
+                href="https://policies.google.com/terms"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-ink/20 underline-offset-2 transition-colors hover:text-signal dark:decoration-paper/20"
+              >
+                Terms of Service
+              </a>{' '}
+              apply.
+            </p>
           </form>
         </div>
       </div>
