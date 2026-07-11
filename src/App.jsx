@@ -7,19 +7,17 @@ import Path from './components/Path';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+function getPreferredTheme() {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
 function App() {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState(getPreferredTheme);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (theme === null) return;
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {

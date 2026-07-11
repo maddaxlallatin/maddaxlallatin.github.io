@@ -1,6 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-paper: #e6ebf0;
+  --color-ink: #0b1220;
+  --color-muted: #5a6577;
+  --color-signal: #0d9f8f;
+  --color-graphite: #121820;
+  --color-panel: #d5dce4;
+  --color-panel-dark: #1a222d;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --max-width-site: 72rem;
+}
 
 @layer base {
   html {
@@ -18,7 +33,7 @@
 
 @layer components {
   .grid-surface {
-    background-color: theme('colors.paper');
+    background-color: var(--color-paper);
     background-image:
       linear-gradient(to right, rgb(11 18 32 / 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(11 18 32 / 0.06) 1px, transparent 1px);
@@ -26,7 +41,7 @@
   }
 
   .dark .grid-surface {
-    background-color: theme('colors.graphite');
+    background-color: var(--color-graphite);
     background-image:
       linear-gradient(to right, rgb(230 235 240 / 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(230 235 240 / 0.06) 1px, transparent 1px);
