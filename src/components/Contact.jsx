@@ -17,10 +17,10 @@ function Contact() {
             </p>
             <div className="mt-8 flex flex-col gap-2 font-mono text-xs uppercase tracking-[0.14em]">
               <a
-                href="mailto:maddax.lallatin@usu.edu"
+                href="mailto:me@maddaxlallatin.com"
                 className="normal-case tracking-normal text-muted transition-colors hover:text-signal"
               >
-                maddax.lallatin@usu.edu
+                me@maddaxlallatin.com
               </a>
               <a
                 href="https://github.com/maddaxlallatin"
