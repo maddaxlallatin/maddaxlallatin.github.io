@@ -16,7 +16,15 @@ function Path() {
             <li key={`${item.year}-${item.title}`} className="relative pb-10 pl-8 last:pb-0">
               <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-signal bg-paper dark:bg-graphite" />
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="font-mono text-xs text-signal">{item.year}</span>
+                <span
+                  className={`font-mono text-xs uppercase tracking-[0.14em] ${
+                    item.year === 'Now'
+                      ? 'font-semibold text-signal'
+                      : 'text-muted'
+                  }`}
+                >
+                  {item.year}
+                </span>
                 <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
                   {item.duration}
                 </span>
