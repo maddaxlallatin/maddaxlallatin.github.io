@@ -1,57 +1,91 @@
 export default [
-    {
-        title: "Stock API",
-        imgUrl: 'assets\\stockAPI.png',
-        stack: ['Java', 'Springboot', 'AWS EC2'],
-        link: 'https://github.com/maddaxlallatin/stockapi',
-        description: "A RESTful API created with Springboot, uses data from yahoo finance Hosted on AWS EC2."
-
-
-    },
-    {
-        title: "VR Cup Pong",
-        imgUrl: 'assets\\vrCupPongImage.png',
-        stack: ['C#', 'Unity'],
-        link: 'https://github.com/maddaxlallatin/cupPong',
-        description: "A multiplayer vr cup pong game made in Unity using PhotonPUN."
-
-    },
-    {
-        title: "Developer Portfolio",
-        imgUrl: 'assets\\developerPortfolio.png',
-        stack: ['React', 'Tailwind', 'Vite'],
-        link: 'https://maddaxlallatin.com',
-        description: "A simple portfolio website that showcases my projects and skills."
-    },
-    {
-        title: "GFRC 2023",
-        imgUrl: 'assets\\gfrc2023Image.png',
-        stack: ['C#', 'SQLite', 'Unity'],
-        link: 'https://github.com/maddaxlallatin/GFRC_2023',
-        description: "Part of a summer mentorship program at MITRE, collaborated with other highschool students to build a FRC simulation."
-
-    },
-    {
-        title: "Tara's Cookbook",
-        imgUrl: 'assets/tarasCookbookImage.png',
-        stack: ['Java', 'Springboot', 'Vite', 'React', 'Tailwind', 'AWS EC2', 'MongoDB'],
-        link: 'http://tarascookbook.live',
-        description: "Website that acesses a database of recipes and displays them to the user. Based on my mom's cookbook. Uses Springboot to create a API to modify the database."
-
-    },
-    {
-        title: "Grizzly Guide",
-        imgUrl: 'assets/grizzlyGuideImage.png',
-        stack: ['Ardunio', 'C++'],
-        link: 'https://github.com/maddaxlallatin/grizzlyGuide',
-        description: "A school map integrated with a gantry system, controlled by two Arduino Unos and a CNC shield. Stepper motors move a magnet-equipped bear through the hallways, guiding new students to their chosen rooms."
-
-    },
-    {
-        title: "Google Calendar Color",
-        imgUrl: 'assets/googleCalendarColor.png',
-        stack: ['JavaScript'],
-        link: 'https://github.com/maddaxlallatin/googleCalenderColor',
-        description: "A chrome extension that recolors google calendar event backgrounds based on their color when in month view."
-    }
-]
+  {
+    id: 'stock-api',
+    title: 'Stock API',
+    year: '2024',
+    role: 'Backend',
+    summary:
+      'Scalable REST API for real-time and historical market data from Yahoo Finance — designed, deployed, and hosted on AWS EC2.',
+    stack: ['Java', 'Spring Boot', 'AWS EC2', 'JSoup'],
+    link: 'https://github.com/maddaxlallatin/stockapi',
+    imgUrl: 'assets/stockAPI.png',
+    featured: true,
+    category: 'software',
+  },
+  {
+    id: 'grizzly-guide',
+    title: 'Grizzly Guide',
+    year: '2024',
+    role: 'Hardware + software',
+    summary:
+      'Embedded gantry system on Arduino Unos and a CNC shield — multi-axis stepper control moves a magnet-equipped bear to guide students through school hallways.',
+    stack: ['Arduino', 'C++'],
+    link: 'https://github.com/maddaxlallatin/grizzlyGuide',
+    imgUrl: 'assets/grizzlyGuideImage.png',
+    featured: true,
+    category: 'hardware',
+  },
+  {
+    id: 'taras-cookbook',
+    title: "Tara's Cookbook",
+    year: '2024',
+    role: 'Full-stack',
+    summary:
+      'Recipe site backed by a Spring Boot API and MongoDB, built from my mom’s cookbook and hosted on AWS EC2.',
+    stack: ['Java', 'Spring Boot', 'React', 'Vite', 'Tailwind', 'MongoDB', 'AWS EC2'],
+    link: 'http://tarascookbook.live',
+    imgUrl: 'assets/tarasCookbookImage.png',
+    featured: true,
+    category: 'software',
+  },
+  {
+    id: 'gfrc-2023',
+    title: 'GFRC 2023',
+    year: '2023',
+    role: 'Simulation',
+    summary:
+      'Unity FRC “Charged Up” practice sim built as a MITRE software engineering mentee — C#, testing, and team delivery.',
+    stack: ['C#', 'Unity', 'SQLite'],
+    link: 'https://github.com/maddaxlallatin/GFRC_2023',
+    imgUrl: 'assets/gfrc2023Image.png',
+    featured: true,
+    category: 'simulation',
+  },
+  {
+    id: 'vr-cup-pong',
+    title: 'VR Cup Pong',
+    year: '2023',
+    role: 'Game systems',
+    summary: 'Multiplayer VR cup pong in Unity, networked with Photon PUN.',
+    stack: ['C#', 'Unity', 'Photon PUN'],
+    link: 'https://github.com/maddaxlallatin/cupPong',
+    imgUrl: 'assets/vrCupPongImage.png',
+    featured: true,
+    category: 'simulation',
+  },
+  {
+    id: 'google-calendar-color',
+    title: 'Google Calendar Color',
+    year: '2022',
+    role: 'Browser tooling',
+    summary:
+      'Chrome extension that recolors month-view event backgrounds to match their assigned colors.',
+    stack: ['JavaScript'],
+    link: 'https://github.com/maddaxlallatin/googleCalenderColor',
+    imgUrl: 'assets/googleCalendarColor.png',
+    featured: false,
+    category: 'tooling',
+  },
+  {
+    id: 'developer-portfolio',
+    title: 'Developer Portfolio',
+    year: '2024',
+    role: 'Frontend',
+    summary: 'Personal site for projects and path',
+    stack: ['React', 'Tailwind', 'Vite'],
+    link: 'https://maddaxlallatin.com',
+    imgUrl: 'assets/developerPortfolio.png',
+    featured: false,
+    category: 'software',
+  },
+];

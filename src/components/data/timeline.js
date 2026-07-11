@@ -1,26 +1,37 @@
 export default [
-    {
-        year: 'Current',
-        title: 'Computer Science Student',
-        duration: '',
-        details: 'I am currently a student at Utah State University studying Computer Science with a minor in Unmanned Aerial Systems. '    
-    },
-    {
-        year: '2024',
-        title: 'High School Graduate',
-        duration: '4 years',
-        details: 'Graduated High School from the Grassfield High School Governers STEM Academy. Earned a 4.5446 GPA. Was a member of the National Honor Society and the varsity soccer team.'    
-    },
-    {
-        year: '2023',
-        title: 'Software Enginnering Mentee',
-        duration: '6 months',
-        details: "I participated in a summer mentorship program focused on developing a Unity-based simulation of the 2023 FIRST Robotics Competition (FRC) challenge, \"Charged Up.\" Under the guidance of MITRE employees, we aimed to enhance students\' STEM skills and software development capabilities, offering FRC teams a tool for robot operation practice. My responsibilities included Unity development (C#), documentation, user testing, task tracking (GitHub), timely project updates, and collaborative work. The goal was to deliver the simulation at the end of the summer and present it."    
-    },
-    {
-        year: '2018',
-        title: 'First Line of Code',
-        duration: 'the beginning...',
-        details: "I started coding in 2018 when I was 14 years old. I started with JavaScript using Node.js then moved onto learning Java and C#. I then started messing around with React, HTML, and CSS. I have been coding ever since."    
-    },
+  {
+    year: "Now",
+    title: "Student Software Engineer · Space Dynamics Lab",
+    duration: "Jul 2026 – Present",
+    details: "Null."
+  },
+  {
+    year: "Now",
+    title: "B.S. Computer Science · Utah State University",
+    duration: "Expected May 2028",
+    details:
+      "GPA 3.82. Minor in Unmanned Aerial Systems. Coursework includes Advanced Software Engineering, Data Structures & Algorithms, Discrete Math, and Calculus. Nominee for 2024–2025 CS Outstanding Pre-Professional Student of the Year.",
+  },
+  {
+    year: "2025",
+    title: "Digital Accessibility Specialist · Utah State University",
+    duration: "Aug 2025 – Jul 2026",
+    details:
+      "Created and maintained software tools to improve accessibility across campus digital resources — Canvas courses, websites, and social platforms.",
+  },
+
+  {
+    year: "2024",
+    title: "Governor's STEM Academy · Grassfield High School",
+    duration: "Class of 2024",
+    details:
+      "Graduated Chesapeake, VA with a 4.55 GPA from the Governor’s STEM Academy.",
+  },
+  {
+    year: "2023",
+    title: "Software Engineering Mentee · MITRE",
+    duration: "May – Aug 2023",
+    details:
+      "Developed a Unity-based simulation for the 2023 FIRST Robotics Competition in Hampton, VA — designed, tested, and debugged in C# with a collaborative team.",
+  },
 ];

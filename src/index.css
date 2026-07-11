@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased dark:bg-graphite dark:text-paper;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-signal;
+  }
+}
+
+@layer components {
+  .grid-surface {
+    background-color: theme('colors.paper');
+    background-image:
+      linear-gradient(to right, rgb(11 18 32 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(11 18 32 / 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .dark .grid-surface {
+    background-color: theme('colors.graphite');
+    background-image:
+      linear-gradient(to right, rgb(230 235 240 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(230 235 240 / 0.06) 1px, transparent 1px);
+  }
+
+  .section-anchor {
+    scroll-margin-top: 5.5rem;
+  }
+
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-muted;
+  }
+
+  .site-shell {
+    @apply mx-auto w-[92%] max-w-site;
+  }
+
+  .fade-in {
+    animation: fade-up 0.7s ease-out both;
+  }
+
+  .fade-in-delay {
+    animation: fade-up 0.7s ease-out 0.15s both;
+  }
+
+  .fade-in-delay-2 {
+    animation: fade-up 0.7s ease-out 0.3s both;
+  }
+
+  .ascii-portrait {
+    @apply m-0 overflow-hidden font-mono text-ink/70 select-none dark:text-paper/65;
+    font-size: clamp(3.2px, 0.72vw, 6.5px);
+    line-height: 1.05;
+    letter-spacing: 0;
+    white-space: pre;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-in,
+  .fade-in-delay,
+  .fade-in-delay-2 {
+    animation: none;
+  }
+}

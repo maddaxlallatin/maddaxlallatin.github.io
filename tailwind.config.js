@@ -1,22 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html',"./src/**/*.{jsx,js}"],
-  darkMode: 'class', // or 'media' or 'class'
+  content: ['./index.html', './src/**/*.{jsx,js}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        stone: {
-         900: '#1f2335',
-        },
-        white:'#F2EBDC',
-       
+        paper: '#E6EBF0',
+        ink: '#0B1220',
+        muted: '#5A6577',
+        signal: '#0D9F8F',
+        graphite: '#121820',
+        panel: '#D5DCE4',
+        'panel-dark': '#1A222D',
       },
       fontFamily: {
-        inter: ['inter', 'serif'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+      },
+      maxWidth: {
+        site: '72rem',
+      },
     },
   },
-
   plugins: [],
-}
-}
-
+};
