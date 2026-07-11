@@ -1,4 +1,5 @@
-import asciiArt from '../assets/ascii-art.txt?raw';
+import asciiArtLight from '../assets/ascii-art-light.txt?raw';
+import asciiArtDark from '../assets/ascii-art-dark.txt?raw';
 
 function Hero() {
   return (
@@ -41,8 +42,11 @@ function Hero() {
 
         <div className="fade-in-delay relative min-w-0 border border-ink/15 bg-paper/40 p-2 dark:border-paper/15 dark:bg-graphite/40 md:justify-self-end">
           <p className="mono-label mb-2 px-1">Fig · 01 / Scan</p>
-          <pre className="ascii-portrait" aria-hidden="true">
-            {asciiArt}
+          <pre className="ascii-portrait dark:hidden" aria-hidden="true">
+            {asciiArtLight}
+          </pre>
+          <pre className="ascii-portrait hidden dark:block" aria-hidden="true">
+            {asciiArtDark}
           </pre>
           <span className="sr-only">ASCII portrait of Maddax Lallatin</span>
         </div>
