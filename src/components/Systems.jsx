@@ -1,10 +1,14 @@
 import systems from './data/systems';
+import useInView from '../hooks/useInView';
 
 function Systems() {
+  const [headerRef, headerVisible] = useInView();
+  const [gridRef, gridVisible] = useInView();
+
   return (
     <section id="systems" className="section-anchor border-b border-ink/10 py-20 dark:border-paper/10 md:py-28">
       <div className="site-shell">
-        <div className="mb-12">
+        <div ref={headerRef} className={`reveal mb-12 ${headerVisible ? 'is-visible' : ''}`}>
           <p className="mono-label">Schema · 02 / Systems</p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
             Stack modules
@@ -14,11 +18,14 @@ function Systems() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {systems.map((module) => (
+        <div ref={gridRef} className="grid gap-4 sm:grid-cols-2">
+          {systems.map((module, index) => (
             <article
               key={module.id}
-              className="border border-ink/15 p-5 transition-colors hover:border-signal dark:border-paper/15"
+              className={`reveal border border-ink/15 p-5 transition-colors hover:border-signal dark:border-paper/15 ${
+                gridVisible ? 'is-visible' : ''
+              }`}
+              style={{ '--reveal-delay': `${index * 90}ms` }}
             >
               <div className="flex items-baseline justify-between gap-3 border-b border-ink/10 pb-3 dark:border-paper/10">
                 <h3 className="font-display text-xl font-semibold tracking-tight">{module.label}</h3>

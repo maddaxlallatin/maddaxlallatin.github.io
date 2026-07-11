@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Forminit } from 'forminit';
+import useInView from '../hooks/useInView';
 
 const forminit = new Forminit();
 const FORM_ID = 'nnkybgz3syn';
@@ -12,6 +13,8 @@ function Contact() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const [copyRef, copyVisible] = useInView();
+  const [formRef, formVisible] = useInView();
 
   useEffect(() => {
     const existing = document.querySelector('script[data-recaptcha="v3"]');
@@ -76,7 +79,7 @@ function Contact() {
     <section id="contact" className="section-anchor border-b border-ink/10 py-20 dark:border-paper/10 md:py-28">
       <div className="site-shell">
         <div className="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
-          <div>
+          <div ref={copyRef} className={`reveal ${copyVisible ? 'is-visible' : ''}`}>
             <p className="mono-label">Schema · 04 / Contact</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
               Open a channel
@@ -110,7 +113,12 @@ function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className={`reveal flex flex-col gap-3 ${formVisible ? 'is-visible' : ''}`}
+            style={{ '--reveal-delay': '120ms' }}
+          >
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="block">
                 <span className="mono-label mb-1.5 block">First name</span>

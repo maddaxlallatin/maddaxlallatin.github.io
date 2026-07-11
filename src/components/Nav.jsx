@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 const LINKS = [
   { id: 'work', label: 'Work' },
@@ -10,6 +10,9 @@ const LINKS = [
 function Nav({ theme, onThemeSwitch }) {
   const [active, setActive] = useState('work');
   const [scrolled, setScrolled] = useState(false);
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, ready: false });
+  const linkRefs = useRef({});
+  const trackRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -38,6 +41,29 @@ function Nav({ theme, onThemeSwitch }) {
     return () => observer.disconnect();
   }, []);
 
+  useLayoutEffect(() => {
+    const updateIndicator = () => {
+      const track = trackRef.current;
+      const link = linkRefs.current[active];
+      if (!track || !link) {
+        setIndicator((current) => ({ ...current, ready: false }));
+        return;
+      }
+
+      const trackBox = track.getBoundingClientRect();
+      const linkBox = link.getBoundingClientRect();
+      setIndicator({
+        left: linkBox.left - trackBox.left,
+        width: linkBox.width,
+        ready: true,
+      });
+    };
+
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [active]);
+
   return (
     <header
       className={`sticky top-0 z-40 border-b transition-colors ${
@@ -52,14 +78,18 @@ function Nav({ theme, onThemeSwitch }) {
         </a>
 
         <nav
+          ref={trackRef}
           aria-label="Primary"
-          className="flex max-w-[55%] items-center gap-1 overflow-x-auto font-mono text-[11px] uppercase tracking-[0.14em] sm:max-w-none sm:gap-4 sm:text-xs"
+          className="nav-track flex max-w-[55%] items-center gap-1 overflow-x-auto font-mono text-[11px] uppercase tracking-[0.14em] sm:max-w-none sm:gap-4 sm:text-xs"
         >
           {LINKS.map((link) => (
             <a
               key={link.id}
+              ref={(node) => {
+                linkRefs.current[link.id] = node;
+              }}
               href={`#${link.id}`}
-              className={`whitespace-nowrap px-1.5 py-1 transition-colors ${
+              className={`relative z-10 whitespace-nowrap px-1.5 py-1 transition-colors ${
                 active === link.id
                   ? 'text-signal'
                   : 'text-muted hover:text-ink dark:hover:text-paper'
@@ -68,6 +98,15 @@ function Nav({ theme, onThemeSwitch }) {
               {link.label}
             </a>
           ))}
+          <span
+            className="nav-indicator"
+            style={{
+              left: indicator.left,
+              width: indicator.width,
+              opacity: indicator.ready ? 1 : 0,
+            }}
+            aria-hidden="true"
+          />
         </nav>
 
         <div className="flex items-center gap-2">

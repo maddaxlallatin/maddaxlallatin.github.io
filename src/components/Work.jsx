@@ -1,14 +1,23 @@
 import portfolio from './data/portfolio';
 import ProjectPanel from './ProjectPanel';
+import useInView from '../hooks/useInView';
 
 function Work() {
   const featured = portfolio.filter((project) => project.featured);
   const archive = portfolio.filter((project) => !project.featured);
+  const [headerRef, headerVisible] = useInView();
+  const [listRef, listVisible] = useInView();
+  const [archiveRef, archiveVisible] = useInView();
 
   return (
     <section id="work" className="section-anchor border-b border-ink/10 py-20 dark:border-paper/10 md:py-28">
       <div className="site-shell">
-        <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div
+          ref={headerRef}
+          className={`reveal mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between ${
+            headerVisible ? 'is-visible' : ''
+          }`}
+        >
           <div>
             <p className="mono-label">Schema · 01 / Work</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
@@ -20,13 +29,23 @@ function Work() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div ref={listRef} className="flex flex-col gap-6">
           {featured.map((project, index) => (
-            <ProjectPanel key={project.id} project={project} index={index} />
+            <div
+              key={project.id}
+              className={`reveal ${listVisible ? 'is-visible' : ''}`}
+              style={{ '--reveal-delay': `${index * 100}ms` }}
+            >
+              <ProjectPanel project={project} index={index} />
+            </div>
           ))}
         </div>
 
-        <div className="mt-16">
+        <div
+          ref={archiveRef}
+          className={`reveal mt-16 ${archiveVisible ? 'is-visible' : ''}`}
+          style={{ '--reveal-delay': '80ms' }}
+        >
           <p className="mono-label mb-4">Archive</p>
           <ul className="divide-y divide-ink/10 border-y border-ink/10 dark:divide-paper/10 dark:border-paper/10">
             {archive.map((project) => (
